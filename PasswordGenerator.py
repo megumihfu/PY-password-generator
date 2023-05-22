@@ -2,8 +2,9 @@ import string
 import random
 
 class PasswordGenerator:
-    def __init__(self, size):
+    def __init__(self, size, password):
         self.size = size
+        self.password = password
 
     def password_size(self):
         self.size = int(input("Enter the size needed for your new password (highter than 8): "))
@@ -13,17 +14,17 @@ class PasswordGenerator:
     
     def password_generator(self):
         password = string.ascii_uppercase + string.ascii_lowercase + string.digits
-        password = random.choices(password, k=self.size)
-        return ''.join(password)
+        self.password = random.choices(password, k=self.size)
+        #print("dans password_generator : ", ''.join(self.password))
+        return ''.join(self.password)
     
     def check_password_security(self):
-        password = self.password_generator()
-        print(password)
+        #print("dans check_security : ", ''.join(self.password))
         has_digit = False
         has_upper = False
         has_lower = False
 
-        for x in password:
+        for x in self.password:
             if x.isdigit():
                 has_digit = True
             elif x.islower():
@@ -32,17 +33,19 @@ class PasswordGenerator:
                 has_upper = True
             
         if has_digit & has_lower & has_upper:
-            print("It's strong enough")
+            #print("The password generated is strong enough")
             return True
         else:
-            print("It's not strong enough")
+            print("The password generated isn't strong enough")
             return False
     
     def final_password(self):
-        if self.check_password_security() is True:
-            pass
+        password = self.check_password_security()
+        if password == True:
+            #print("pas besoin de regenérer un nouveau mdp")
+            return ''.join(self.password)
         else:
-            print("The password generated isn't strong enough for you")
+            #print("The password generated isn't strong enough for you")
             self.password_generator()
             self.check_password_security()
             self.final_password()

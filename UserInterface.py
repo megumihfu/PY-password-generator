@@ -1,9 +1,11 @@
 import getpass
 class UserInterface:
-    username = input("Enter your username : ")
+    #username = input("Enter your username : ")
     password = getpass.getpass("Enter your password : ")
     #print(password)
 
-    def __init__(self, username, password):
-        self.username = username
-        self.password = password
+    #def __init__(self):
+    def interface():
+        print("Welcome to your Password Generator")
+
+
