@@ -6,3 +6,4 @@
 - Assure-toi que le mot de passe généré contient au moins un caractère de chaque catégorie (lettre majuscule, lettre minuscule, chiffre et symbole spécial) pour améliorer sa complexité.
 - Une fois le mot de passe généré, affiche-le à l'utilisateur.
 - Propose à l'utilisateur de générer un nouveau mot de passe ou de quitter le programme.
+- Envoyer le mot de passe généré à l'utilisateur par mail.
