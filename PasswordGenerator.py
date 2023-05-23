@@ -9,7 +9,7 @@ class PasswordGenerator:
     def password_generator(self):
         password = string.ascii_uppercase + string.ascii_lowercase + string.digits
         self.password = random.choices(password, k=self.size)
-        #print("dans password_generator : ", ''.join(self.password))
+        print("dans password_generator : ", ''.join(self.password))
         return ''.join(self.password)
     
     def check_password_security(self):
@@ -17,7 +17,7 @@ class PasswordGenerator:
         has_upper = False
         has_lower = False
 
-        for x in self.password: #mettre dans un tant que pour que des que les conditions sont remplies -> next step
+        for x in self.password: 
             if x.isdigit():
                 has_digit = True
             elif x.islower():
@@ -35,10 +35,9 @@ class PasswordGenerator:
     
     def final_password(self):
         if self.check_password_security():# == True:
-            #print("pas besoin de regenérer un nouveau mdp")
             return ''.join(self.password)
         else:
             self.password = self.password_generator()
-            return self.final_password() #pourquoi qd condition ok et que password = true alors on revient ici ??
+            return self.final_password() 
 
     
