@@ -1,3 +1,5 @@
+import smtplib
+import ssl
 from PasswordGenerator import PasswordGenerator
 
 class UserInterface:
@@ -13,17 +15,29 @@ class UserInterface:
 
     def interface(self):
         print("Welcome to your Password Generator")
-        size = UserInterface().user_size()
+        size = UserInterface.user_size()
         password = ""
         generator = PasswordGenerator(size, password) #creation de l'instance
         generator.password_generator() 
         password = generator.final_password()
         print("Password generated : ", password)
+        UserInterface.send_password(password)
         return ''.join(password)
 
-    def send_password():
+    def send_password(password):
         response = input("Do you want us to send you the password by email ? [y/n] : ")
         if response == "y":
             email = input("Please enter your email : ")
-            
+            print("Your email adress is : ", email)
+            smtp_address = 'smtp.gmail.com'
+            smtp_port = 465
+
+            email_address = 'testfortesting050@gmail.com'
+            email_password = 'xoxktwiafhexvxib'
+            email_receiver = email
+
+            context = ssl.create_default_context()
+            with smtplib.SMTP_SSL(smtp_address, smtp_port, context=context) as server:
+                server.login(email_address, email_password)
+                server.sendmail(email_address, email_receiver, 'There is the password you generated : ', password)   
 
