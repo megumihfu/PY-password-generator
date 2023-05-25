@@ -9,7 +9,6 @@ class PasswordGenerator:
     def password_generator(self):
         password = string.ascii_uppercase + string.ascii_lowercase + string.digits
         self.password = random.choices(password, k=self.size)
-        print("dans password_generator : ", ''.join(self.password))
         return ''.join(self.password)
     
     def check_password_security(self):
@@ -26,11 +25,9 @@ class PasswordGenerator:
                 has_upper = True
 
         if has_digit & has_lower & has_upper:
-            print("The password generated is strong enough")
             return True
         
         else:
-            print("The password generated isn't strong enough")
             return False
     
     def final_password(self):
