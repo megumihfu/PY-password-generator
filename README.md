@@ -1,4 +1,4 @@
-# Python-password-manager
+# Python-password-generator
 
 - [x] Demande à l'utilisateur la longueur souhaitée pour le mot de passe.
 - [x] Crée une liste contenant tous les caractères possibles pour le mot de passe. 
