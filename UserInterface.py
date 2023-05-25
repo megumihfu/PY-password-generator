@@ -39,5 +39,5 @@ class UserInterface:
             context = ssl.create_default_context()
             with smtplib.SMTP_SSL(smtp_address, smtp_port, context=context) as server:
                 server.login(email_address, email_password)
-                server.sendmail(email_address, email_receiver, 'There is the password you generated : ', password)   
-
+                message = "Subject : Your Generated Password\n\nThere is the password you generated : " + password
+                server.sendmail(email_address, email_receiver, message)
