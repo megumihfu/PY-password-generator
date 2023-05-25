@@ -34,7 +34,7 @@ class PasswordGenerator:
             return False
     
     def final_password(self):
-        if self.check_password_security():# == True:
+        if self.check_password_security():
             return ''.join(self.password)
         else:
             self.password = self.password_generator()

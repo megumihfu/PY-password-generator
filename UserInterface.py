@@ -4,7 +4,6 @@ from PasswordGenerator import PasswordGenerator
 
 class UserInterface:
     @staticmethod
-    #password = getpass.getpass("Enter your password : ")
 
     def user_size():
         size = int(input("Enter the size needed for your new password : "))
@@ -39,5 +38,5 @@ class UserInterface:
             context = ssl.create_default_context()
             with smtplib.SMTP_SSL(smtp_address, smtp_port, context=context) as server:
                 server.login(email_address, email_password)
-                message = "Subject : Your Generated Password\n\nThere is the password you generated : " + password
+                message = "Subject : Your Generated Password\n\nThere is the password you generated : " + password + "\nThank you for using our software !"
                 server.sendmail(email_address, email_receiver, message)
